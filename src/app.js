@@ -18,7 +18,7 @@ const taskList = document.getElementById("taskList");
 
 taskForm.addEventListener("submit", function(e) {
   e.preventDefault();
-  const taskDescription = document.getElementById("taskInput").ariaValueMax;
+  const taskDescription = document.getElementById("taskInput").value;
   const task = new Task(taskDescription);
   addTaskToDom(task);
   taskForm.reset();
@@ -28,10 +28,10 @@ function addTaskToDom(task) {
   const li = document.createElement("li");
   li.textContent = task.description;
 
-  const completeButton = documment.createElement("button");
+  const completeButton = document.createElement("button");
   completeButton.textContent = "Complete";
   completeButton.addEventListener("click", () => {
-    taskList.toggleComplete();
+    task.toggleComplete();
     li.classList.toggle("completed", task.completed);
   });
 
